@@ -1,45 +1,29 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import { Platform } from 'react-native';
+import React, { useEffect } from 'react';
+import SplashScreen from 'react-native-splash-screen';
+import AppNavigator from './src/navigation/AppNavigator';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import Toast from 'react-native-toast-message';
+import toastConfig from './src/components/ToastConfig';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
-
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
-  );
-}
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
+const App = () => {
+  useEffect(() => {
+    if (Platform.OS === 'android') {
+      SplashScreen.hide();
+    }
+  }, []);
 
   return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
+    <>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <SafeAreaProvider>
+          <AppNavigator />
+        </SafeAreaProvider>
+      </GestureHandlerRootView>
+      <Toast config={toastConfig} position="top" topOffset={50} />
+    </>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+};
 
 export default App;

@@ -7,23 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C80B921A6F3F58F76C31292 /* libPods-QRPilot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-QRPilot.a */; };
+		01CC770879BD75E88CEE7273 /* libPods-QRPilot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D379FD1A36FE6C1DFC809864 /* libPods-QRPilot.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		3761F0AA423E437DB628E32B /* Aeonik-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 116C893556534D0883873198 /* Aeonik-Bold.otf */; };
+		3F5D8F0A400E4E82983585DC /* Aeonik-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 717AD47985C64F71911419BB /* Aeonik-BlackItalic.otf */; };
+		4B981A7717AB4E61820CA2D1 /* Aeonik-Air.otf in Resources */ = {isa = PBXBuildFile; fileRef = F0E3EE03E0C7499B90F0781E /* Aeonik-Air.otf */; };
+		5656A1516D7941A59A7005CF /* Aeonik-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B58AAB3DE9240C9A38239BE /* Aeonik-LightItalic.otf */; };
+		582D0DD5DE1249E0B827688C /* Aeonik-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 760F41AAA51C4088837E6DD7 /* Aeonik-Thin.otf */; };
+		6C81314CC44E4A5ABF40BB4F /* Aeonik-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = A4462F4B40F24F05B6F746BC /* Aeonik-Medium.otf */; };
+		6E065E34D75C4E8381DA57EA /* Aeonik-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D6125F4488284DC9BF766F66 /* Aeonik-BoldItalic.otf */; };
+		6F0B4D72568F4FD3A0524A1E /* Aeonik-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A466B58377543388B531F44 /* Aeonik-Light.otf */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
+		77CCEE6A7CDC47FE84100F51 /* Aeonik-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = C2BA77EAC06F4204BC6F8154 /* Aeonik-Black.otf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		97A5C0D070B84E9DB877665F /* Aeonik-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = AF0C6046257647609316D761 /* Aeonik-MediumItalic.otf */; };
+		9C9F009081B242F9A96C7D20 /* aed-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6286B23CAABF496398C375D8 /* aed-Regular.otf */; };
+		A85720B500EB4E398CD92839 /* Aeonik-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 913A7D5710A044DEA2E58ABE /* Aeonik-Regular.otf */; };
+		ADF87BAA654048C892BF266A /* Aeonik-AirItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4D35F663A3C4723B0643FEF /* Aeonik-AirItalic.otf */; };
+		DD3E8687ECA14FF7BCF2E40A /* Aeonik-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D7413E99335846CA90966CC0 /* Aeonik-RegularItalic.otf */; };
+		ED8A7A38CD804B502511FD9E /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		F6438A264F774662A02AF2C5 /* Aeonik-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C026D0B6B15F4CF2823B3F8C /* Aeonik-ThinItalic.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		116C893556534D0883873198 /* Aeonik-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Aeonik-Bold.otf"; path = "../src/assets/fonts/Aeonik-Bold.otf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* QRPilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRPilot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = QRPilot/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = QRPilot/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = QRPilot/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		3B4392A12AC88292D35C810B /* Pods-QRPilot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRPilot.debug.xcconfig"; path = "Target Support Files/Pods-QRPilot/Pods-QRPilot.debug.xcconfig"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-QRPilot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRPilot.release.xcconfig"; path = "Target Support Files/Pods-QRPilot/Pods-QRPilot.release.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-QRPilot.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QRPilot.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A466B58377543388B531F44 /* Aeonik-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Aeonik-Light.otf"; path = "../src/assets/fonts/Aeonik-Light.otf"; sourceTree = "<group>"; };
+		5B58AAB3DE9240C9A38239BE /* Aeonik-LightItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Aeonik-LightItalic.otf"; path = "../src/assets/fonts/Aeonik-LightItalic.otf"; sourceTree = "<group>"; };
+		5EF3A87DBC468ACF3D04003F /* Pods-QRPilot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRPilot.debug.xcconfig"; path = "Target Support Files/Pods-QRPilot/Pods-QRPilot.debug.xcconfig"; sourceTree = "<group>"; };
+		6286B23CAABF496398C375D8 /* aed-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "aed-Regular.otf"; path = "../src/assets/fonts/aed-Regular.otf"; sourceTree = "<group>"; };
+		7007929A4525399A76B3A7D8 /* Pods-QRPilot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRPilot.release.xcconfig"; path = "Target Support Files/Pods-QRPilot/Pods-QRPilot.release.xcconfig"; sourceTree = "<group>"; };
+		717AD47985C64F71911419BB /* Aeonik-BlackItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Aeonik-BlackItalic.otf"; path = "../src/assets/fonts/Aeonik-BlackItalic.otf"; sourceTree = "<group>"; };
+		760F41AAA51C4088837E6DD7 /* Aeonik-Thin.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Aeonik-Thin.otf"; path = "../src/assets/fonts/Aeonik-Thin.otf"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = QRPilot/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = QRPilot/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		913A7D5710A044DEA2E58ABE /* Aeonik-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Aeonik-Regular.otf"; path = "../src/assets/fonts/Aeonik-Regular.otf"; sourceTree = "<group>"; };
+		A4462F4B40F24F05B6F746BC /* Aeonik-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Aeonik-Medium.otf"; path = "../src/assets/fonts/Aeonik-Medium.otf"; sourceTree = "<group>"; };
+		AF0C6046257647609316D761 /* Aeonik-MediumItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Aeonik-MediumItalic.otf"; path = "../src/assets/fonts/Aeonik-MediumItalic.otf"; sourceTree = "<group>"; };
+		C026D0B6B15F4CF2823B3F8C /* Aeonik-ThinItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Aeonik-ThinItalic.otf"; path = "../src/assets/fonts/Aeonik-ThinItalic.otf"; sourceTree = "<group>"; };
+		C2BA77EAC06F4204BC6F8154 /* Aeonik-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Aeonik-Black.otf"; path = "../src/assets/fonts/Aeonik-Black.otf"; sourceTree = "<group>"; };
+		D379FD1A36FE6C1DFC809864 /* libPods-QRPilot.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QRPilot.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4D35F663A3C4723B0643FEF /* Aeonik-AirItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Aeonik-AirItalic.otf"; path = "../src/assets/fonts/Aeonik-AirItalic.otf"; sourceTree = "<group>"; };
+		D6125F4488284DC9BF766F66 /* Aeonik-BoldItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Aeonik-BoldItalic.otf"; path = "../src/assets/fonts/Aeonik-BoldItalic.otf"; sourceTree = "<group>"; };
+		D7413E99335846CA90966CC0 /* Aeonik-RegularItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Aeonik-RegularItalic.otf"; path = "../src/assets/fonts/Aeonik-RegularItalic.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F0E3EE03E0C7499B90F0781E /* Aeonik-Air.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Aeonik-Air.otf"; path = "../src/assets/fonts/Aeonik-Air.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-QRPilot.a in Frameworks */,
+				01CC770879BD75E88CEE7273 /* libPods-QRPilot.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,11 +81,34 @@
 			name = QRPilot;
 			sourceTree = "<group>";
 		};
+		159D4BA2BCDE48238AED79DF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D7413E99335846CA90966CC0 /* Aeonik-RegularItalic.otf */,
+				116C893556534D0883873198 /* Aeonik-Bold.otf */,
+				5B58AAB3DE9240C9A38239BE /* Aeonik-LightItalic.otf */,
+				760F41AAA51C4088837E6DD7 /* Aeonik-Thin.otf */,
+				6286B23CAABF496398C375D8 /* aed-Regular.otf */,
+				717AD47985C64F71911419BB /* Aeonik-BlackItalic.otf */,
+				F0E3EE03E0C7499B90F0781E /* Aeonik-Air.otf */,
+				2A466B58377543388B531F44 /* Aeonik-Light.otf */,
+				A4462F4B40F24F05B6F746BC /* Aeonik-Medium.otf */,
+				D4D35F663A3C4723B0643FEF /* Aeonik-AirItalic.otf */,
+				C2BA77EAC06F4204BC6F8154 /* Aeonik-Black.otf */,
+				913A7D5710A044DEA2E58ABE /* Aeonik-Regular.otf */,
+				D6125F4488284DC9BF766F66 /* Aeonik-BoldItalic.otf */,
+				C026D0B6B15F4CF2823B3F8C /* Aeonik-ThinItalic.otf */,
+				AF0C6046257647609316D761 /* Aeonik-MediumItalic.otf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-QRPilot.a */,
+				D379FD1A36FE6C1DFC809864 /* libPods-QRPilot.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -74,6 +128,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				159D4BA2BCDE48238AED79DF /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -91,8 +146,8 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-QRPilot.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-QRPilot.release.xcconfig */,
+				5EF3A87DBC468ACF3D04003F /* Pods-QRPilot.debug.xcconfig */,
+				7007929A4525399A76B3A7D8 /* Pods-QRPilot.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -104,13 +159,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "QRPilot" */;
 			buildPhases = (
-				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				BE96FDB36DF6D7EF86399560 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
-				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				4E545776D547056A054E767F /* [CP] Embed Pods Frameworks */,
+				9C8B136A4EBBB450C6A5129B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -159,6 +214,22 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				ED8A7A38CD804B502511FD9E /* PrivacyInfo.xcprivacy in Resources */,
+				DD3E8687ECA14FF7BCF2E40A /* Aeonik-RegularItalic.otf in Resources */,
+				3761F0AA423E437DB628E32B /* Aeonik-Bold.otf in Resources */,
+				5656A1516D7941A59A7005CF /* Aeonik-LightItalic.otf in Resources */,
+				582D0DD5DE1249E0B827688C /* Aeonik-Thin.otf in Resources */,
+				9C9F009081B242F9A96C7D20 /* aed-Regular.otf in Resources */,
+				3F5D8F0A400E4E82983585DC /* Aeonik-BlackItalic.otf in Resources */,
+				4B981A7717AB4E61820CA2D1 /* Aeonik-Air.otf in Resources */,
+				6F0B4D72568F4FD3A0524A1E /* Aeonik-Light.otf in Resources */,
+				6C81314CC44E4A5ABF40BB4F /* Aeonik-Medium.otf in Resources */,
+				ADF87BAA654048C892BF266A /* Aeonik-AirItalic.otf in Resources */,
+				77CCEE6A7CDC47FE84100F51 /* Aeonik-Black.otf in Resources */,
+				A85720B500EB4E398CD92839 /* Aeonik-Regular.otf in Resources */,
+				6E065E34D75C4E8381DA57EA /* Aeonik-BoldItalic.otf in Resources */,
+				F6438A264F774662A02AF2C5 /* Aeonik-ThinItalic.otf in Resources */,
+				97A5C0D070B84E9DB877665F /* Aeonik-MediumItalic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,7 +252,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"\\\"$WITH_ENVIRONMENT\\\" \\\"$REACT_NATIVE_XCODE\\\"\"\n";
 		};
-		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
+		4E545776D547056A054E767F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -198,7 +269,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QRPilot/Pods-QRPilot-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+		9C8B136A4EBBB450C6A5129B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QRPilot/Pods-QRPilot-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QRPilot/Pods-QRPilot-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QRPilot/Pods-QRPilot-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE96FDB36DF6D7EF86399560 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -220,23 +308,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-QRPilot/Pods-QRPilot-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-QRPilot/Pods-QRPilot-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QRPilot/Pods-QRPilot-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -253,7 +324,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-QRPilot.debug.xcconfig */;
+			baseConfigurationReference = 5EF3A87DBC468ACF3D04003F /* Pods-QRPilot.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -281,7 +352,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-QRPilot.release.xcconfig */;
+			baseConfigurationReference = 7007929A4525399A76B3A7D8 /* Pods-QRPilot.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -366,6 +437,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
@@ -374,7 +446,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				USE_HERMES = true;
 			};
 			name = Debug;
 		};
@@ -431,6 +506,7 @@
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
@@ -439,7 +515,9 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

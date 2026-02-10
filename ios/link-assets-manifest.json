@@ -1,0 +1,65 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Aeonik-RegularItalic.otf",
+      "sha1": "b4af2ce040557172f6f0461d2a492cb545e7f3ac"
+    },
+    {
+      "path": "src/assets/fonts/Aeonik-Bold.otf",
+      "sha1": "895cc424fddb95a1df8ebd9be7e7c3a5d6389ede"
+    },
+    {
+      "path": "src/assets/fonts/Aeonik-LightItalic.otf",
+      "sha1": "7f1a1fb707c06a4a0c989169fecb99cd5a76149b"
+    },
+    {
+      "path": "src/assets/fonts/Aeonik-Thin.otf",
+      "sha1": "ec11aa87d2b5b84b2ec13d85711421c89ca6ad50"
+    },
+    {
+      "path": "src/assets/fonts/aed-Regular.otf",
+      "sha1": "9a5bc972937d53d8f2536bfefd613f701db055aa"
+    },
+    {
+      "path": "src/assets/fonts/Aeonik-BlackItalic.otf",
+      "sha1": "406602744a8e60f202a412969f7b7c2e08d897e0"
+    },
+    {
+      "path": "src/assets/fonts/Aeonik-Air.otf",
+      "sha1": "b3f98ddb5a1b066efd66d5cd7c5fa5986682cbc5"
+    },
+    {
+      "path": "src/assets/fonts/Aeonik-Light.otf",
+      "sha1": "16fb5df4da98ec6fb501442b8bffdf7d5141ba01"
+    },
+    {
+      "path": "src/assets/fonts/Aeonik-Medium.otf",
+      "sha1": "19818828924b04da8eb41dd286ed03bd53b78aa0"
+    },
+    {
+      "path": "src/assets/fonts/Aeonik-AirItalic.otf",
+      "sha1": "710db11032fe37f1424282a485a768ba99106ab3"
+    },
+    {
+      "path": "src/assets/fonts/Aeonik-Black.otf",
+      "sha1": "e94df3c1919cde3554d78191fbdd84124831c4f6"
+    },
+    {
+      "path": "src/assets/fonts/Aeonik-Regular.otf",
+      "sha1": "0fe7a50c9da32e7b3570c612ca83bc893c2b2fe4"
+    },
+    {
+      "path": "src/assets/fonts/Aeonik-BoldItalic.otf",
+      "sha1": "b8dae727ce6257441b9cf5eb223f4d86097c4384"
+    },
+    {
+      "path": "src/assets/fonts/Aeonik-ThinItalic.otf",
+      "sha1": "08a674c57a492875bec2535bad953042561e92a1"
+    },
+    {
+      "path": "src/assets/fonts/Aeonik-MediumItalic.otf",
+      "sha1": "28e88667122f21bb9bada007e195cbdb34ab3b61"
+    }
+  ]
+}

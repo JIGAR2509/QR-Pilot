@@ -28,14 +28,39 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-	  <!-- Do not change NSAllowsArbitraryLoads to true, or you will risk app rejection! -->
 		<key>NSAllowsArbitraryLoads</key>
 		<false/>
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>$(QRPilot) needs access to your Camera.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Allow access to save QR images to your photo library</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow access to the photo library for selecting images</string>
+	<key>RCTNewArchEnabled</key>
+	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Aeonik-RegularItalic.otf</string>
+		<string>Aeonik-Bold.otf</string>
+		<string>Aeonik-LightItalic.otf</string>
+		<string>Aeonik-Thin.otf</string>
+		<string>aed-Regular.otf</string>
+		<string>Aeonik-BlackItalic.otf</string>
+		<string>Aeonik-Air.otf</string>
+		<string>Aeonik-Light.otf</string>
+		<string>Aeonik-Medium.otf</string>
+		<string>Aeonik-AirItalic.otf</string>
+		<string>Aeonik-Black.otf</string>
+		<string>Aeonik-Regular.otf</string>
+		<string>Aeonik-BoldItalic.otf</string>
+		<string>Aeonik-ThinItalic.otf</string>
+		<string>Aeonik-MediumItalic.otf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
