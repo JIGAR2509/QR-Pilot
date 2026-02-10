@@ -8,7 +8,10 @@ import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from '../../navigation/types';
 import styles from './styles';
 
+import { useTranslation } from 'react-i18next';
+
 const OnboardingScreen = () => {
+  const { t } = useTranslation();
   const bottomSheetRef = useRef<BottomSheet>(null);
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
@@ -24,10 +27,9 @@ const OnboardingScreen = () => {
       >
         <BottomSheetView style={styles.sheetView}>
           <View style={styles.sheetContent}>
-            <Text style={styles.title}>Get Started</Text>
+            <Text style={styles.title}>{t('onboarding.title')}</Text>
             <Text style={styles.description}>
-              Go and enjoy our features for free and make your life easy with
-              us.
+              {t('onboarding.description')}
             </Text>
 
             <TouchableOpacity
@@ -36,7 +38,7 @@ const OnboardingScreen = () => {
                 navigation.navigate('MainTab', { screen: 'QRScreen' })
               }
             >
-              <Text style={styles.buttonText}>Let's go</Text>
+              <Text style={styles.buttonText}>{t('onboarding.button')}</Text>
               <ArrowIcon height={20} width={20} style={styles.buttonIcon} />
             </TouchableOpacity>
           </View>

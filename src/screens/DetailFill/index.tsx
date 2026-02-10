@@ -4,6 +4,7 @@ import { RouteProp, useRoute } from '@react-navigation/native';
 import { RootStackParamList } from '../../navigation/types';
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
+import { useTranslation } from 'react-i18next';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -33,10 +34,23 @@ import LinearGradient from 'react-native-linear-gradient';
 import Toast from 'react-native-toast-message';
 import { useHistoryStore } from '../../store/historyStore';
 
+const pageTitleMap = {
+  'Text': 'generate.options.text',
+  'Website': 'generate.options.website',
+  'Wi‑Fi': 'generate.options.wifi',
+  'Contact': 'generate.options.contact',
+  'WhatsApp': 'generate.options.whatsapp',
+  'Email': 'generate.options.email',
+  'Twitter': 'generate.options.twitter',
+  'Instagram': 'generate.options.instagram',
+  'Location': 'generate.options.location',
+} as const;
+
 const DetailFillScreen = () => {
   const [isFront, setIsFront] = useState(true);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState<DetailFillFormData>(inputData);
+  const { t } = useTranslation();
 
   const qrRef = useRef<QRCode | null>(null);
   const route = useRoute<RouteProp<RootStackParamList, 'DetailFillScreen'>>();
@@ -69,8 +83,8 @@ const DetailFillScreen = () => {
       await CameraRoll.saveAsset(uri, { type: 'photo' });
       Toast.show({
         type: 'success',
-        text1: 'QR Code Saved',
-        text2: 'Check your gallery to view it.',
+        text1: t('detail.saved'),
+        text2: t('detail.check_gallery'),
       });
     } catch (err) {
       console.error('Save error:', err);
@@ -88,7 +102,7 @@ const DetailFillScreen = () => {
         url: Platform.OS === 'android' ? 'file://' + uri : uri,
         type: 'image/png',
       });
-    } catch {}
+    } catch { }
   };
 
   const handleButtonPress = () => {
@@ -103,7 +117,7 @@ const DetailFillScreen = () => {
         setIsFront(false);
         Toast.show({
           type: 'info',
-          text1: 'QR generated !',
+          text1: t('detail.generated_success'),
         });
         const qrValue = getQRData(details.title, formData);
         useHistoryStore.getState().addToHistory({
@@ -125,7 +139,7 @@ const DetailFillScreen = () => {
 
   return (
     <Layout>
-      <Header title={details.title} backIcon />
+      <Header title={t(pageTitleMap[details.title as keyof typeof pageTitleMap])} backIcon />
       <View style={styles.gradientWrapper}>
         {isFront ? (
           <Animated.View style={frontAnimatedStyle}>
@@ -144,7 +158,7 @@ const DetailFillScreen = () => {
                 {renderIcon(details.title)}
               </View>
               <View style={styles.inputWrapper}>
-                {renderInputVariants(details.title, formData, setFormData)}
+                {renderInputVariants(details.title, formData, setFormData, t)}
               </View>
 
               <LinearGradient
@@ -177,7 +191,7 @@ const DetailFillScreen = () => {
                         },
                       ]}
                     >
-                      Generate
+                      {t('detail.generate')}
                     </Text>
                   )}
                 </TouchableOpacity>
@@ -226,7 +240,7 @@ const DetailFillScreen = () => {
                     },
                   ]}
                 >
-                  Edit
+                  {t('detail.edit')}
                 </Text>
               </TouchableOpacity>
             </Gradient>

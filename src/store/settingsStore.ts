@@ -7,6 +7,8 @@ interface SettingsState {
   toggleVibration: () => void;
   beepEnabled: boolean;
   toggleBeep: () => void;
+  language: string;
+  setLanguage: (lang: string) => void;
 }
 
 export const useSettingsStore = create<SettingsState>()(
@@ -17,6 +19,8 @@ export const useSettingsStore = create<SettingsState>()(
         set(state => ({ vibrationEnabled: !state.vibrationEnabled })),
       beepEnabled: true,
       toggleBeep: () => set(state => ({ beepEnabled: !state.beepEnabled })),
+      language: 'en',
+      setLanguage: lang => set({ language: lang }),
     }),
     {
       name: 'settings-storage',

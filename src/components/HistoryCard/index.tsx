@@ -61,10 +61,7 @@ const HistoryCard = ({ item, onDelete }: HistoryCardProps) => {
   });
 
   const handleDeletePress = () => {
-    translateX.value = withTiming(-cardWidth.value, { duration: 200 });
-    setTimeout(() => {
-      onDelete(item.id);
-    }, 200);
+    onDelete(item.id);
   };
 
   const handleCloseCard = () => {

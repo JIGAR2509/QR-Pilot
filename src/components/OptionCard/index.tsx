@@ -6,12 +6,14 @@ import LinearGradient from 'react-native-linear-gradient';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from '../../navigation/types';
 import styles from './styles';
+import { useTranslation } from 'react-i18next';
 
 type OptionCardProps = {
   item: QROption;
 };
 
 const OptionCard = ({ item }: OptionCardProps) => {
+  const { t } = useTranslation();
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   return (
     <TouchableOpacity
@@ -28,7 +30,7 @@ const OptionCard = ({ item }: OptionCardProps) => {
         style={styles.gradient}
       >
         <View style={styles.titleWrapper}>
-          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.title}>{t(`generate.options.${item.type}`)}</Text>
         </View>
       </LinearGradient>
     </TouchableOpacity>

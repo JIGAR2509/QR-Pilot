@@ -1,0 +1,82 @@
+{
+  "onboarding": {
+    "title": "शुरू करें",
+    "description": "हमारी सुविधाओं का निःशुल्क आनंद लें और हमारे साथ अपना जीवन आसान बनाएं।",
+    "button": "चलो चलें"
+  },
+  "home": {
+    "gallery": "गैलरी",
+    "flashlight": "फ्लैशलाइट",
+    "scan": "स्कैन",
+    "create": "बनाएं"
+  },
+  "generate": {
+    "title": "बनाएं",
+    "options": {
+      "text": "टेक्स्ट",
+      "website": "वेबसाइट",
+      "wifi": "वाई-फाई",
+      "contact": "संपर्क",
+      "whatsapp": "व्हाट्सएप",
+      "email": "ईमेल",
+      "twitter": "ट्विटर",
+      "instagram": "इंस्टाग्राम",
+      "location": "स्थान"
+    }
+  },
+  "detail": {
+    "generate": "बनाएं",
+    "edit": "संपादित करें",
+    "saved": "QR कोड सहेजा गया",
+    "check_gallery": "इसे देखने के लिए अपनी गैलरी देखें।",
+    "generated_success": "QR बनाया गया!",
+    "input": {
+      "text_label": "टेक्स्ट",
+      "text_placeholder": "टेक्स्ट दर्ज करें",
+      "website_label": "वेबसाइट URL",
+      "ssid_label": "SSID",
+      "network_placeholder": "नेटवर्क का नाम",
+      "password_label": "पासवर्ड",
+      "phone_label": "फ़ोन नंबर",
+      "contact_placeholder": "संपर्क नंबर",
+      "message_label": "संदेश",
+      "message_placeholder": "xyz...",
+      "email_label": "ईमेल",
+      "subject_label": "विषय",
+      "body_label": "बॉडी",
+      "twitter_label": "ट्विटर यूजरनाम",
+      "username_placeholder": "यूजरनाम",
+      "latitude_label": "अक्षांश",
+      "longitude_label": "देशांतर",
+      "address_label": "पता",
+      "address_placeholder": "पता दर्ज करें"
+    }
+  },
+  "history": {
+    "title": "इतिहास",
+    "empty": "कोई इतिहास नहीं मिला"
+  },
+  "settings": {
+    "title": "सेटिंग्स",
+    "vibration": "कंपन",
+    "vibration_desc": "स्कैन पूरा होने पर कंपन।",
+    "beep": "बीप",
+    "beep_desc": "स्कैन पूरा होने पर बीप।",
+    "language": "भाषा",
+    "select_language": "भाषा चुनें",
+    "restart_app": "ऐप रीस्टार्ट करें",
+    "restart_desc": "भाषा परिवर्तन लागू करने के लिए, ऐप को रीस्टार्ट करने की आवश्यकता है।",
+    "restart_now": "अभी रीस्टार्ट करें"
+  },
+  "common": {
+    "error_open_url": "URL खोलने में विफल:",
+    "no_qr_found": "कोई QR कोड नहीं मिला",
+    "try_another_image": "कृपया दूसरी छवि आज़माएं",
+    "delete_history_title": "इतिहास हटाएं",
+    "delete_history_description": "क्या आप वाकई इस इतिहास को हटाना चाहते हैं? यह क्रिया पूर्ववत नहीं की जा सकती।",
+    "delete": "हटाएं",
+    "cancel": "रद्द करें",
+    "are_you_sure": "क्या आप वाकई चाहते हैं?",
+    "action_cannot_undone": "यह क्रिया पूर्ववत नहीं की जा सकती।"
+  }
+}

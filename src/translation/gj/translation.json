@@ -1,0 +1,82 @@
+{
+  "onboarding": {
+    "title": "શરૂ કરો",
+    "description": "અમારી સુવિધાઓનો મફતમાં આનંદ લો અને અમારી સાથે તમારું જીવન સરળ બનાવો.",
+    "button": "ચાલો જઈએ"
+  },
+  "home": {
+    "gallery": "ગેલેરી",
+    "flashlight": "ફ્લેશલાઇટ",
+    "scan": "સ્કેન",
+    "create": "બનાવો"
+  },
+  "generate": {
+    "title": "બનાવો",
+    "options": {
+      "text": "ટેક્સ્ટ",
+      "website": "વેબસાઇટ",
+      "wifi": "વાઇ-ફાઇ",
+      "contact": "સંપર્ક",
+      "whatsapp": "વોટ્સએપ",
+      "email": "ઇમેઇલ",
+      "twitter": "ટ્વિટર",
+      "instagram": "ઇન્સ્ટાગ્રામ",
+      "location": "સ્થાન"
+    }
+  },
+  "detail": {
+    "generate": "બનાવો",
+    "edit": "ફેરફાર કરો",
+    "saved": "QR કોડ સાચવવામાં આવ્યો",
+    "check_gallery": "તેને જોવા માટે તમારી ગેલેરી તપાસો.",
+    "generated_success": "QR બનાવવામાં આવ્યો!",
+    "input": {
+      "text_label": "ટેક્સ્ટ",
+      "text_placeholder": "ટેક્સ્ટ દાખલ કરો",
+      "website_label": "વેબસાઇટ URL",
+      "ssid_label": "SSID",
+      "network_placeholder": "નેટવર્કનું નામ",
+      "password_label": "પાસવર્ડ",
+      "phone_label": "ફોન નંબર",
+      "contact_placeholder": "સંપર્ક નંબર",
+      "message_label": "સંદેશ",
+      "message_placeholder": "xyz...",
+      "email_label": "ઇમેઇલ",
+      "subject_label": "વિષય",
+      "body_label": "બોડી",
+      "twitter_label": "ટ્વિટર યુઝરનેમ",
+      "username_placeholder": "યુઝરનેમ",
+      "latitude_label": "અક્ષાંશ",
+      "longitude_label": "રેખાંશ",
+      "address_label": "સરનામું",
+      "address_placeholder": "સરનામું દાખલ કરો"
+    }
+  },
+  "history": {
+    "title": "ઇતિહાસ",
+    "empty": "કોઈ ઇતિહાસ મળ્યો નથી"
+  },
+  "settings": {
+    "title": "સેટિંગ્સ",
+    "vibration": "વાઇબ્રેશન",
+    "vibration_desc": "સ્કેન પૂર્ણ થાય ત્યારે વાઇબ્રેશન.",
+    "beep": "બીપ",
+    "beep_desc": "સ્કેન પૂર્ણ થાય ત્યારે બીપ.",
+    "language": "ભાષા",
+    "select_language": "ભાષા પસંદ કરો",
+    "restart_app": "એપ્લિકેશન રીસ્ટાર્ટ કરો",
+    "restart_desc": "ભાષાના ફેરફારો લાગુ કરવા માટે, એપ્લિકેશનને રીસ્ટાર્ટ કરવાની જરૂર છે.",
+    "restart_now": "હમણાં રીસ્ટાર્ટ કરો"
+  },
+  "common": {
+    "error_open_url": "URL ખોલવામાં નિષ્ફળ:",
+    "no_qr_found": "કોઈ QR કોડ મળ્યો નથી",
+    "try_another_image": "કૃપા કરીને બીજી છબી અજમાવો",
+    "delete_history_title": "ઇતિહાસ કાઢી નાખો",
+    "delete_history_description": "શું તમે ખરેખર આ ઇતિહાસ કાઢી નાખવા માંગો છો? આ ક્રિયા ઉલટાવી શકાતી નથી.",
+    "delete": "કાઢી નાખો",
+    "cancel": "રદ કરો",
+    "are_you_sure": "શું તમે ખરેખર ઇચ્છો છો?",
+    "action_cannot_undone": "આ ક્રિયા ઉલટાવી શકાતી નથી."
+  }
+}

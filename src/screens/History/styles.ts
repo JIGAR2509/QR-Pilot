@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     marginBottom: screenHeight / 11,
   },
   contentStyle: { gap: spacing.xxs },
+
 });
 
 export default styles;

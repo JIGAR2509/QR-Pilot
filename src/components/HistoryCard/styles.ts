@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     zIndex: 2,
     position: 'absolute',
     right: 20,
-    top: '30%',
+    top: '35%',
   },
 });
 

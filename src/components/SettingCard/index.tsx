@@ -15,12 +15,19 @@ const SettingCard = ({
   onChangeValue,
   isSwitch,
   value,
-  rightIcon,
+  rightIcon: RightIcon,
   text,
+  onPress,
 }: SettingCardProps) => {
+  const CardContainer = onPress ? TouchableOpacity : View;
+
   return (
     <>
-      <View style={styles.container}>
+      <CardContainer
+        activeOpacity={0.7}
+        onPress={onPress}
+        style={styles.container}
+      >
         <Gradient
           colors={[colors.primary, colors.white, colors.primary]}
           angle={90}
@@ -54,11 +61,19 @@ const SettingCard = ({
           </View>
           {text && (
             <View>
-              <Text>{text}</Text>
-              <TouchableOpacity>
-                <Text></Text>
-              </TouchableOpacity>
+              <Text
+                style={{
+                  color: colors.white,
+                  fontFamily: fonts.normal,
+                  fontSize: fontSize.md,
+                }}
+              >
+                {text}
+              </Text>
             </View>
+          )}
+          {RightIcon && (
+            <RightIcon height={16} width={16} fill={colors.white} />
           )}
           {isSwitch && (
             <Switch
@@ -69,7 +84,7 @@ const SettingCard = ({
             />
           )}
         </View>
-      </View>
+      </CardContainer>
     </>
   );
 };

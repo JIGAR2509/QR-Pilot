@@ -6,6 +6,7 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -18,6 +19,7 @@ import styles from './styles';
 import { SliderProps } from './types';
 
 const Slider = ({ focusedView, onChange }: SliderProps) => {
+  const { t } = useTranslation();
   const translateX = useSharedValue(0);
 
   const animatedStyle = useAnimatedStyle(() => ({
@@ -59,7 +61,7 @@ const Slider = ({ focusedView, onChange }: SliderProps) => {
             focusedView === 0 ? { color: colors.black } : '',
           ]}
         >
-          Scan
+          {t('home.scan')}
         </Text>
       </TouchableOpacity>
 
@@ -77,7 +79,7 @@ const Slider = ({ focusedView, onChange }: SliderProps) => {
             focusedView === 1 ? { color: colors.black } : '',
           ]}
         >
-          Create
+          {t('home.create')}
         </Text>
       </TouchableOpacity>
     </View>

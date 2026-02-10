@@ -1,4 +1,6 @@
+import './src/translation';
 import { Platform } from 'react-native';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import React, { useEffect } from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import AppNavigator from './src/navigation/AppNavigator';
@@ -18,7 +20,9 @@ const App = () => {
     <>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <SafeAreaProvider>
-          <AppNavigator />
+          <BottomSheetModalProvider>
+            <AppNavigator />
+          </BottomSheetModalProvider>
         </SafeAreaProvider>
       </GestureHandlerRootView>
       <Toast config={toastConfig} position="top" topOffset={50} />

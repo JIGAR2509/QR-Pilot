@@ -1,5 +1,6 @@
 import { StyleSheet, View } from 'react-native';
-import React from 'react';
+import React, { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
 import { colors } from '../../theme/colors';
@@ -8,33 +9,107 @@ import { fontSize, spacing } from '../../theme/typography';
 import SettingCard from '../../components/SettingCard';
 import VibrateIcon from '../../assets/icons/vibrate.svg';
 import BeepIcon from '../../assets/icons/beep.svg';
+import LanguageIcon from '../../assets/icons/web.svg';
+import RightArrowIcon from '../../assets/icons/right_arrow.svg';
 import { useSettingsStore } from '../../store/settingsStore';
+import LanguageSheet from '../../components/LanguageSheet';
+import { BottomSheetModal } from '@gorhom/bottom-sheet';
+import ConfirmationSheet from '../../components/ConfirmationSheet';
+import RNRestart from 'react-native-restart';
+import i18n from '../../translation';
 
 const SettingScreen = () => {
-  const { vibrationEnabled, toggleVibration, beepEnabled, toggleBeep } =
-    useSettingsStore();
+  const { t } = useTranslation();
+  const {
+    vibrationEnabled,
+    toggleVibration,
+    beepEnabled,
+    toggleBeep,
+    language,
+    setLanguage,
+  } = useSettingsStore();
+
+  const languageSheetRef = useRef<BottomSheetModal>(null);
+  const restartSheetRef = useRef<BottomSheetModal>(null);
+  const [pendingLanguage, setPendingLanguage] = useState<string>('');
+
+  const getLanguageLabel = (code: string) => {
+    switch (code) {
+      case 'en':
+        return 'English';
+      case 'hn':
+        return 'Hindi';
+      case 'gj':
+        return 'Gujarati';
+      default:
+        return 'English';
+    }
+  };
+
+  const handleLanguagePress = () => {
+    languageSheetRef.current?.present();
+  };
+
+  const onSelectLanguage = (lang: string) => {
+    setPendingLanguage(lang);
+    languageSheetRef.current?.dismiss();
+    setTimeout(() => {
+      restartSheetRef.current?.present();
+    }, 500);
+  };
+
+  const handleRestart = () => {
+    setLanguage(pendingLanguage);
+    i18n.changeLanguage(pendingLanguage);
+    restartSheetRef.current?.dismiss();
+    setTimeout(() => {
+      RNRestart.restart();
+    }, 500);
+  };
 
   return (
     <Layout>
-      <Header backIcon title="Settings" />
+      <Header backIcon title={t('settings.title')} />
       <View style={styles.container}>
+        <SettingCard
+          Icon={LanguageIcon}
+          title={t('settings.language')}
+          description={t('settings.select_language')}
+          text={getLanguageLabel(language)}
+          rightIcon={RightArrowIcon}
+          onPress={handleLanguagePress}
+        />
         <SettingCard
           Icon={VibrateIcon}
           isSwitch={true}
-          title="Vibration"
-          description="Vibration when scan is done."
+          title={t('settings.vibration')}
+          description={t('settings.vibration_desc')}
           value={vibrationEnabled}
           onChangeValue={toggleVibration}
         />
         <SettingCard
           Icon={BeepIcon}
           isSwitch={true}
-          title="Beep"
-          description="Beep when scan is done."
+          title={t('settings.beep')}
+          description={t('settings.beep_desc')}
           value={beepEnabled}
           onChangeValue={toggleBeep}
         />
       </View>
+      <LanguageSheet
+        ref={languageSheetRef}
+        selectedLanguage={language}
+        onSelect={onSelectLanguage}
+        title={t('settings.language')}
+      />
+      <ConfirmationSheet
+        ref={restartSheetRef}
+        title={t('settings.restart_app')}
+        description={t('settings.restart_desc')}
+        confirmText={t('settings.restart_now')}
+        cancelText={t('common.cancel')}
+        onConfirm={handleRestart}
+      />
     </Layout>
   );
 };

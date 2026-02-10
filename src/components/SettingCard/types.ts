@@ -10,4 +10,5 @@ export type SettingCardProps = {
   onChangeValue?: (val: boolean) => void;
   text?: string;
   rightIcon?: React.FC<SvgProps>;
+  onPress?: () => void;
 };

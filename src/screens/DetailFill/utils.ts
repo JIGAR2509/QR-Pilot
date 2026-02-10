@@ -8,7 +8,7 @@ export const inputData: DetailFillFormData = {
   contact: '',
   wifi: { ssid: '', password: '' },
   twitter: '',
-  location: { lat: '', lng: '' },
+  location: { lat: '', lng: '', address: '' },
   instagram: '',
 };
 
@@ -33,7 +33,7 @@ export const isGenerateDisabled = (type: string, data?: DetailFillFormData) => {
     case 'Twitter':
       return !data?.twitter.trim();
     case 'Location':
-      return !data?.location.lat.trim() || !data?.location.lng.trim();
+      return data?.location.address ? !data?.location.address.trim() : !data?.location.lat.trim() || !data?.location.lng.trim();
     case 'Instagram':
       return !data?.instagram.trim();
     default:

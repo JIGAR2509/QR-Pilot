@@ -22,9 +22,20 @@ export const useHistoryStore = create<HistoryState>()(
     set => ({
       history: [],
       addToHistory: item =>
-        set(state => ({
-          history: [item, ...state.history],
-        })),
+        set(state => {
+          const latestItem = state.history[0];
+          if (
+            latestItem &&
+            latestItem.value === item.value &&
+            latestItem.type === item.type &&
+            latestItem.category === item.category
+          ) {
+            return state;
+          }
+          return {
+            history: [item, ...state.history],
+          };
+        }),
       removeFromHistory: id =>
         set(state => ({
           history: state.history.filter(item => item.id !== id),

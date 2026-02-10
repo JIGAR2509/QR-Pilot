@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   View,
   StyleSheet,
@@ -47,6 +48,7 @@ Sound.setCategory('Playback');
 const ReanimatedCamera = createAnimatedComponent(Camera);
 
 const QRScreen = () => {
+  const { t } = useTranslation();
   const [permission, setPermission] = useState(false);
   const [scanLayout, setScanLayout] = useState<null | LayoutRectangle | string>(
     null,
@@ -110,7 +112,7 @@ const QRScreen = () => {
             playBeep();
           }
           Linking.openURL(code.value).catch(err =>
-            Alert.alert('Failed to open URL:', err),
+            Alert.alert(t('common.error_open_url'), err),
           );
         }
       });
@@ -167,11 +169,11 @@ const QRScreen = () => {
               playBeep();
             }
             Linking.openURL(value).catch(err =>
-              Alert.alert('Failed to open URL:', err),
+              Alert.alert(t('common.error_open_url'), err),
             );
           }
         } else {
-          Alert.alert('No QR Code found', 'Please try another image');
+          Alert.alert(t('common.no_qr_found'), t('common.try_another_image'));
         }
       } catch (error) {
         console.log('QR detection failed', error);
@@ -188,7 +190,7 @@ const QRScreen = () => {
         <TouchableOpacity onPress={imagePicker} style={styles.logoContainer}>
           <GalleryLogo height={20} width={20} />
           <Text style={[styles.logoText, { color: colors.white }]}>
-            Gallery
+            {t('home.gallery')}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -208,7 +210,7 @@ const QRScreen = () => {
               { color: isTorchOn ? colors.primary : colors.white },
             ]}
           >
-            Flashlight
+            {t('home.flashlight')}
           </Text>
         </TouchableOpacity>
       </Animated.View>
