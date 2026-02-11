@@ -35,15 +35,15 @@ import Toast from 'react-native-toast-message';
 import { useHistoryStore } from '../../store/historyStore';
 
 const pageTitleMap = {
-  'Text': 'generate.options.text',
-  'Website': 'generate.options.website',
-  'Wi‑Fi': 'generate.options.wifi',
-  'Contact': 'generate.options.contact',
-  'WhatsApp': 'generate.options.whatsapp',
-  'Email': 'generate.options.email',
-  'Twitter': 'generate.options.twitter',
-  'Instagram': 'generate.options.instagram',
-  'Location': 'generate.options.location',
+  Text: 'generate.options.text',
+  Website: 'generate.options.website',
+  'Wi-Fi': 'generate.options.wifi',
+  Contact: 'generate.options.contact',
+  WhatsApp: 'generate.options.whatsapp',
+  Email: 'generate.options.email',
+  Twitter: 'generate.options.twitter',
+  Instagram: 'generate.options.instagram',
+  Location: 'generate.options.location',
 } as const;
 
 const DetailFillScreen = () => {
@@ -60,16 +60,14 @@ const DetailFillScreen = () => {
   const frontAnimatedStyle = useAnimatedStyle(() => {
     return {
       opacity: transition.value,
-      transform: [{ scale: withTiming(transition.value, { duration: 350 }) }],
+      transform: [{ scale: transition.value }],
     };
   });
 
   const backAnimatedStyle = useAnimatedStyle(() => {
     return {
       opacity: 1 - transition.value,
-      transform: [
-        { scale: withTiming(1 - transition.value, { duration: 350 }) },
-      ],
+      transform: [{ scale: 1 - transition.value }],
     };
   });
 
@@ -102,7 +100,7 @@ const DetailFillScreen = () => {
         url: Platform.OS === 'android' ? 'file://' + uri : uri,
         type: 'image/png',
       });
-    } catch { }
+    } catch {}
   };
 
   const handleButtonPress = () => {
@@ -137,9 +135,26 @@ const DetailFillScreen = () => {
     }
   };
 
+  if (!details?.title) {
+    return null;
+  }
+
+  // Normalize hyphen in title to ensure mapping works (U+2011 to U+002D)
+  const normalizedTitle = details.title.replace(/\u2011/g, '-');
+
+  const getTitleKey = () => {
+    const key = normalizedTitle as keyof typeof pageTitleMap;
+    // Try original title or normalized title
+    return (
+      pageTitleMap[details.title as keyof typeof pageTitleMap] ||
+      pageTitleMap[key] ||
+      'detail.title'
+    );
+  };
+
   return (
     <Layout>
-      <Header title={t(pageTitleMap[details.title as keyof typeof pageTitleMap])} backIcon />
+      <Header title={t(getTitleKey())} backIcon />
       <View style={styles.gradientWrapper}>
         {isFront ? (
           <Animated.View style={frontAnimatedStyle}>

@@ -26,6 +26,7 @@ import { fonts } from '../theme/fonts';
 import QRScreen from '../screens/QR';
 import LinearGradient from 'react-native-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { spacing } from '../theme/typography';
 
 const TAB_HEIGHT = 70;
 const Tab = createBottomTabNavigator();
@@ -184,6 +185,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 16,
     right: 16,
+    paddingBottom: spacing.xs,
   },
   tabBarWrapper: {
     flexDirection: 'row',

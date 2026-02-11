@@ -38,9 +38,9 @@ const SettingScreen = () => {
       case 'en':
         return 'English';
       case 'hn':
-        return 'Hindi';
+        return 'Hindi (हिंदी)';
       case 'gj':
-        return 'Gujarati';
+        return 'Gujarati (ગુજરાતી)';
       default:
         return 'English';
     }

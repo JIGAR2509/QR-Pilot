@@ -20,7 +20,7 @@ export interface QROption {
 export const QR_OPTIONS: QROption[] = [
   { id: '1', title: 'Text', type: 'text', Icon: TextIcon },
   { id: '2', title: 'Website', type: 'website', Icon: WebsiteIcon },
-  { id: '3', title: 'Wi‑Fi', type: 'wifi', Icon: WifiIcon },
+  { id: '3', title: 'Wi-Fi', type: 'wifi', Icon: WifiIcon },
   { id: '4', title: 'Contact', type: 'contact', Icon: ContactIcon },
   { id: '5', title: 'WhatsApp', type: 'whatsapp', Icon: WhatsappIcon },
   { id: '6', title: 'Email', type: 'email', Icon: EmailIcon },

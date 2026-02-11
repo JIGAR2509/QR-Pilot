@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 import { colors } from '../../theme/colors';
 import { fonts } from '../../theme/fonts';
 import { fontSize, spacing } from '../../theme/typography';
+import { isAndroid } from '../../commonUtils';
 
 const styles = StyleSheet.create({
   background: {
@@ -15,6 +16,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: spacing.xl,
     alignItems: 'center',
+    paddingBottom: isAndroid ? spacing.xxl + 10 : spacing.xl,
   },
   title: {
     fontFamily: fonts.bold,

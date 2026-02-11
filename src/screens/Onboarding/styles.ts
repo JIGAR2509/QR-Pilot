@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
   },
   sheetView: {
     paddingVertical: spacing.xxl + 4,
+    paddingBottom: spacing.xxl + 10,
   },
   sheetContent: { paddingHorizontal: spacing.giant, gap: spacing.xs },
   title: {

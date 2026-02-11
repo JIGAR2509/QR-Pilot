@@ -18,7 +18,7 @@ export const isGenerateDisabled = (type: string, data?: DetailFillFormData) => {
       return !data?.text.trim();
     case 'Website':
       return !data?.website.trim();
-    case 'Wi‑Fi':
+    case 'Wi-Fi':
       return !data?.wifi.ssid.trim() || !data?.wifi.password.trim();
     case 'Contact':
       return !data?.contact.trim();
@@ -33,7 +33,9 @@ export const isGenerateDisabled = (type: string, data?: DetailFillFormData) => {
     case 'Twitter':
       return !data?.twitter.trim();
     case 'Location':
-      return data?.location.address ? !data?.location.address.trim() : !data?.location.lat.trim() || !data?.location.lng.trim();
+      return data?.location.address
+        ? !data?.location.address.trim()
+        : !data?.location.lat.trim() || !data?.location.lng.trim();
     case 'Instagram':
       return !data?.instagram.trim();
     default:

@@ -60,6 +60,7 @@ const HistoryScreen = () => {
         description={t('common.delete_history_description')}
         confirmText={t('common.delete')}
         cancelText={t('common.cancel')}
+        title={t('common.delete')}
       />
     </Layout>
   );

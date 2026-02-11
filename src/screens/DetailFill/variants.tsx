@@ -68,7 +68,7 @@ export const renderInputVariants = (
           onChangeText={(v: string) => setFormData(p => ({ ...p, website: v }))}
         />
       );
-    case 'Wi‑Fi':
+    case 'Wi-Fi':
       return (
         <>
           <TextInputField
@@ -263,7 +263,7 @@ export const renderIcon = (type: string) => {
       return <TextIcon width={60} height={60} />;
     case 'Website':
       return <WebsiteIcon width={60} height={60} />;
-    case 'Wi‑Fi':
+    case 'Wi-Fi':
       return <WifiIcon width={60} height={60} />;
     case 'Contact':
       return <ContactIcon width={60} height={60} />;
@@ -286,7 +286,7 @@ export const getQRData = (type: string, formData: DetailFillFormData) => {
       return formData.text;
     case 'Website':
       return formData.website;
-    case 'Wi‑Fi':
+    case 'Wi-Fi':
       return `WIFI:S:${formData.wifi.ssid};T:WPA;P:${formData.wifi.password};;`;
     case 'Contact':
       return `tel:${formData.contact}`;

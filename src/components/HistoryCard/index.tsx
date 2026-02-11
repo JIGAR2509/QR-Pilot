@@ -68,9 +68,17 @@ const HistoryCard = ({ item, onDelete }: HistoryCardProps) => {
     translateX.value = withSpring(0);
   };
 
+  const deletePointerStyle = useAnimatedStyle(() => {
+    return {
+      pointerEvents: translateX.value < -10 ? 'auto' : 'none',
+    };
+  });
+
   return (
     <Pressable style={styles.wrapper}>
-      <Animated.View style={[styles.deleteContainer, deleteStyle]}>
+      <Animated.View
+        style={[styles.deleteContainer, deleteStyle, deletePointerStyle]}
+      >
         <Pressable
           onPress={handleDeletePress}
           hitSlop={{ left: 10, right: 10 }}

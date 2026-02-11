@@ -14,14 +14,13 @@ const resources = {
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: 'en', // Default
+  lng: 'en',
   fallbackLng: 'en',
   interpolation: {
     escapeValue: false,
   },
 });
 
-// Load language from storage and change it immediately
 AsyncStorage.getItem('settings-storage').then(data => {
   if (data) {
     const { state } = JSON.parse(data);

@@ -64,7 +64,7 @@ const SettingCard = ({
               <Text
                 style={{
                   color: colors.white,
-                  fontFamily: fonts.normal,
+                  fontFamily: fonts.bold,
                   fontSize: fontSize.md,
                 }}
               >
