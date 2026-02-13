@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { colors } from '../../theme/colors';
 import { fonts } from '../../theme/fonts';
+import { spacing } from '../../theme/typography';
 
 const styles = StyleSheet.create({
   container: {
@@ -9,6 +10,12 @@ const styles = StyleSheet.create({
   overlay: {
     ...StyleSheet.absoluteFill,
   },
+  gradient: {
+    height: 2,
+    left: 0,
+    right: 0,
+    position: 'absolute',
+  },
   upperTab: {
     width: '70%',
     alignSelf: 'center',
@@ -16,11 +23,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     zIndex: 2,
     padding: 10,
+    paddingVertical: spacing.lg,
     justifyContent: 'space-between',
-    borderRadius: 12,
-    borderTopWidth: 2,
-    borderBottomWidth: 2,
-    borderColor: colors.primary,
+    overflow: 'hidden',
+    borderRadius: 8,
     paddingHorizontal: 32,
   },
   logoContainer: { alignItems: 'center', gap: 4 },

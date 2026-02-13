@@ -14,6 +14,12 @@
     <!-- Android 13+ -->
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
+    <!-- Notifications (Android 13+) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Vibration -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <!-- Legacy write permission (override conflict) -->
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"

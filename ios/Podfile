@@ -14,7 +14,7 @@ target 'QRPilot' do
 
   use_react_native!(
     :path => config[:reactNativePath],
-    :new_arch_enabled => false,
+    :new_arch_enabled => true,
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
@@ -30,7 +30,7 @@ target 'QRPilot' do
       target.build_configurations.each do |config|
         config.build_settings['CLANG_ENABLE_MODULES'] = 'YES'
         config.build_settings['DEFINES_MODULE'] = 'YES'
-        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.1'
       end
     end
   end

@@ -8,13 +8,22 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Toast from 'react-native-toast-message';
 import toastConfig from './src/components/ToastConfig';
+import { useNotification } from './src/hooks/useNotification';
 
 const App = () => {
+  const { initialize, sendWelcome } = useNotification();
+
   useEffect(() => {
     if (Platform.OS === 'android') {
       SplashScreen.hide();
     }
-  }, []);
+
+    const initNotifications = async () => {
+      await initialize();
+      await sendWelcome();
+    };
+    initNotifications();
+  }, [initialize, sendWelcome]);
 
   return (
     <>

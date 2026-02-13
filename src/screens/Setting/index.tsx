@@ -8,9 +8,10 @@ import { fonts } from '../../theme/fonts';
 import { fontSize, spacing } from '../../theme/typography';
 import SettingCard from '../../components/SettingCard';
 import VibrateIcon from '../../assets/icons/vibrate.svg';
-import BeepIcon from '../../assets/icons/beep.svg';
-import LanguageIcon from '../../assets/icons/web.svg';
+import NotificationIcon from '../../assets/icons/beep.svg';
+import LanguageIcon from '../../assets/icons/language.svg';
 import RightArrowIcon from '../../assets/icons/right_arrow.svg';
+import BeepIcon from '../../assets/icons/alerts.svg';
 import { useSettingsStore } from '../../store/settingsStore';
 import LanguageSheet from '../../components/LanguageSheet';
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
@@ -27,6 +28,8 @@ const SettingScreen = () => {
     toggleBeep,
     language,
     setLanguage,
+    notificationsEnabled,
+    toggleNotifications,
   } = useSettingsStore();
 
   const languageSheetRef = useRef<BottomSheetModal>(null);
@@ -72,7 +75,17 @@ const SettingScreen = () => {
       <Header backIcon title={t('settings.title')} />
       <View style={styles.container}>
         <SettingCard
+          Icon={NotificationIcon}
+          title={'Push Notifications'}
+          description={'Enable or disable notifications'}
+          isSwitch
+          value={notificationsEnabled}
+          onChangeValue={toggleNotifications}
+        />
+        <SettingCard
           Icon={LanguageIcon}
+          IconHeight={25}
+          IconWidth={25}
           title={t('settings.language')}
           description={t('settings.select_language')}
           text={getLanguageLabel(language)}
@@ -89,6 +102,8 @@ const SettingScreen = () => {
         />
         <SettingCard
           Icon={BeepIcon}
+          IconHeight={25}
+          IconWidth={25}
           isSwitch={true}
           title={t('settings.beep')}
           description={t('settings.beep_desc')}

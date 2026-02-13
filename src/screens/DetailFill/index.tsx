@@ -1,5 +1,4 @@
-/* eslint-disable react-native/no-inline-styles */
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { RootStackParamList } from '../../navigation/types';
 import Layout from '../../components/Layout';
@@ -33,6 +32,7 @@ import { inputData, isGenerateDisabled } from './utils';
 import LinearGradient from 'react-native-linear-gradient';
 import Toast from 'react-native-toast-message';
 import { useHistoryStore } from '../../store/historyStore';
+import { useNotification } from '../../hooks/useNotification';
 
 const pageTitleMap = {
   Text: 'generate.options.text',
@@ -52,6 +52,7 @@ const DetailFillScreen = () => {
   const [formData, setFormData] = useState<DetailFillFormData>(inputData);
   const { t } = useTranslation();
 
+  const { sendQRGenerated } = useNotification();
   const qrRef = useRef<QRCode | null>(null);
   const route = useRoute<RouteProp<RootStackParamList, 'DetailFillScreen'>>();
   const details = route.params;
@@ -125,6 +126,22 @@ const DetailFillScreen = () => {
           category: details.title,
           createdAt: new Date().toISOString(),
         });
+
+        setTimeout(async () => {
+          try {
+            if (qrRef.current) {
+              const uri = await captureRef(qrRef, {
+                format: 'png',
+                quality: 1,
+              });
+              const imageUri =
+                Platform.OS === 'android' ? 'file://' + uri : uri;
+              await sendQRGenerated(imageUri, details.title);
+            }
+          } catch (err) {
+            console.error('Notification capture error:', err);
+          }
+        }, 1500);
       }, 2000);
     } else {
       transition.value = withTiming(1, {
@@ -139,12 +156,10 @@ const DetailFillScreen = () => {
     return null;
   }
 
-  // Normalize hyphen in title to ensure mapping works (U+2011 to U+002D)
   const normalizedTitle = details.title.replace(/\u2011/g, '-');
 
   const getTitleKey = () => {
     const key = normalizedTitle as keyof typeof pageTitleMap;
-    // Try original title or normalized title
     return (
       pageTitleMap[details.title as keyof typeof pageTitleMap] ||
       pageTitleMap[key] ||

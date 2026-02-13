@@ -11,4 +11,6 @@ export type SettingCardProps = {
   text?: string;
   rightIcon?: React.FC<SvgProps>;
   onPress?: () => void;
+  IconHeight?: number;
+  IconWidth?: number;
 };

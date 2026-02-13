@@ -18,6 +18,8 @@ const SettingCard = ({
   rightIcon: RightIcon,
   text,
   onPress,
+  IconHeight,
+  IconWidth,
 }: SettingCardProps) => {
   const CardContainer = onPress ? TouchableOpacity : View;
 
@@ -34,7 +36,7 @@ const SettingCard = ({
           style={[styles.gradient, { bottom: 0 }]}
         />
         <View style={styles.content}>
-          <Icon height={20} width={20} />
+          <Icon height={IconHeight ?? 20} width={IconWidth ?? 20} />
           <View style={styles.textContainer}>
             <Text
               style={[
@@ -76,12 +78,15 @@ const SettingCard = ({
             <RightIcon height={16} width={16} fill={colors.white} />
           )}
           {isSwitch && (
-            <Switch
-              value={value}
-              onValueChange={onChangeValue}
-              trackColor={{ false: colors.primary, true: colors.primary }}
-              thumbColor={colors.white}
-            />
+            <View>
+              <Switch
+                value={value}
+                onValueChange={onChangeValue}
+                trackColor={{ false: colors.darkGray, true: colors.primary }}
+                thumbColor={colors.white}
+                ios_backgroundColor={colors.darkGray}
+              />
+            </View>
           )}
         </View>
       </CardContainer>

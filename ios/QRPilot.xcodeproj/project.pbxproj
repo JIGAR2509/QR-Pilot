@@ -10,6 +10,7 @@
 		01CC770879BD75E88CEE7273 /* libPods-QRPilot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D379FD1A36FE6C1DFC809864 /* libPods-QRPilot.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		3761F0AA423E437DB628E32B /* Aeonik-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 116C893556534D0883873198 /* Aeonik-Bold.otf */; };
+		3B8E8FC17D9FAA0393972AD1 /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 23391A9329EFD967847F229B /* beep.wav */; };
 		3F5D8F0A400E4E82983585DC /* Aeonik-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 717AD47985C64F71911419BB /* Aeonik-BlackItalic.otf */; };
 		4B981A7717AB4E61820CA2D1 /* Aeonik-Air.otf in Resources */ = {isa = PBXBuildFile; fileRef = F0E3EE03E0C7499B90F0781E /* Aeonik-Air.otf */; };
 		5656A1516D7941A59A7005CF /* Aeonik-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B58AAB3DE9240C9A38239BE /* Aeonik-LightItalic.otf */; };
@@ -35,6 +36,7 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = QRPilot/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = QRPilot/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = QRPilot/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		23391A9329EFD967847F229B /* beep.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = beep.wav; sourceTree = "<group>"; };
 		2A466B58377543388B531F44 /* Aeonik-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Aeonik-Light.otf"; path = "../src/assets/fonts/Aeonik-Light.otf"; sourceTree = "<group>"; };
 		5B58AAB3DE9240C9A38239BE /* Aeonik-LightItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Aeonik-LightItalic.otf"; path = "../src/assets/fonts/Aeonik-LightItalic.otf"; sourceTree = "<group>"; };
 		5EF3A87DBC468ACF3D04003F /* Pods-QRPilot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRPilot.debug.xcconfig"; path = "Target Support Files/Pods-QRPilot/Pods-QRPilot.debug.xcconfig"; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				23391A9329EFD967847F229B /* beep.wav */,
 			);
 			name = QRPilot;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				6E065E34D75C4E8381DA57EA /* Aeonik-BoldItalic.otf in Resources */,
 				F6438A264F774662A02AF2C5 /* Aeonik-ThinItalic.otf in Resources */,
 				97A5C0D070B84E9DB877665F /* Aeonik-MediumItalic.otf in Resources */,
+				3B8E8FC17D9FAA0393972AD1 /* beep.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

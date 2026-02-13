@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   View,
@@ -18,6 +18,7 @@ import {
   useCodeScanner,
 } from 'react-native-vision-camera';
 import { useSettingsStore } from '../../store/settingsStore';
+import { useHistoryStore } from '../../store/historyStore';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -42,6 +43,7 @@ import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { colors } from '../../theme/colors';
 import RNQRGenerator from 'rn-qr-generator';
 import Sound from 'react-native-sound';
+import Gradient from '../../components/Gradient';
 
 Sound.setCategory('Playback');
 
@@ -98,24 +100,64 @@ const QRScreen = () => {
   }, []);
 
   const { vibrationEnabled, beepEnabled } = useSettingsStore();
+  const isProcessing = useRef(false);
+
+  const playBeep = useCallback(() => {
+    const beep = new Sound('beep.wav', Sound.MAIN_BUNDLE, (error: any) => {
+      if (error) {
+        console.log('failed to load the sound', error);
+        return;
+      }
+      beep.play((success: boolean) => {
+        if (!success) {
+          console.log('playback failed due to audio decoding errors');
+        }
+        beep.release();
+      });
+    });
+  }, []);
+
+  const handleCodeScanned = useCallback(
+    (value: string) => {
+      if (isProcessing.current) {
+        return;
+      }
+      isProcessing.current = true;
+
+      if (vibrationEnabled) {
+        Vibration.vibrate();
+      }
+      if (beepEnabled) {
+        playBeep();
+      }
+
+      useHistoryStore.getState().addToHistory({
+        id: Date.now().toString(),
+        value,
+        type: 'scan',
+        category: 'QR',
+        createdAt: new Date().toISOString(),
+      });
+
+      Linking.openURL(value).catch(err =>
+        Alert.alert(t('common.error_open_url'), err),
+      );
+
+      setTimeout(() => {
+        isProcessing.current = false;
+      }, 3000);
+    },
+    [vibrationEnabled, beepEnabled, playBeep, t],
+  );
 
   const codeScanner = useCodeScanner({
     codeTypes: ['qr', 'ean-13'],
     onCodeScanned: codes => {
       if (!scanLayout) return;
-      codes.forEach(code => {
-        if (code.value) {
-          if (vibrationEnabled) {
-            Vibration.vibrate();
-          }
-          if (beepEnabled) {
-            playBeep();
-          }
-          Linking.openURL(code.value).catch(err =>
-            Alert.alert(t('common.error_open_url'), err),
-          );
-        }
-      });
+      const code = codes[0];
+      if (code?.value) {
+        handleCodeScanned(code.value);
+      }
     },
   });
 
@@ -132,21 +174,6 @@ const QRScreen = () => {
   }));
 
   if (!device) return null;
-
-  const playBeep = () => {
-    const beep = new Sound('beep.mp3', Sound.MAIN_BUNDLE, (error: any) => {
-      if (error) {
-        console.log('failed to load the sound', error);
-        return;
-      }
-      beep.play((success: boolean) => {
-        if (!success) {
-          console.log('playback failed due to audio decoding errors');
-        }
-        beep.release();
-      });
-    });
-  };
 
   const imagePicker = () => {
     ImagePicker.openPicker({
@@ -168,6 +195,13 @@ const QRScreen = () => {
             if (beepEnabled) {
               playBeep();
             }
+            useHistoryStore.getState().addToHistory({
+              id: Date.now().toString(),
+              value,
+              type: 'scan',
+              category: 'QR',
+              createdAt: new Date().toISOString(),
+            });
             Linking.openURL(value).catch(err =>
               Alert.alert(t('common.error_open_url'), err),
             );
@@ -187,6 +221,16 @@ const QRScreen = () => {
         entering={FadeInUp.duration(1200)}
         style={[styles.upperTab, { marginTop: inset.top }]}
       >
+        <Gradient
+          colors={[colors.primary, colors.white, colors.primary]}
+          angle={90}
+          style={[styles.gradient, { top: 0 }]}
+        />
+        <Gradient
+          colors={[colors.primary, colors.white, colors.primary]}
+          angle={90}
+          style={[styles.gradient, { bottom: 0 }]}
+        />
         <TouchableOpacity onPress={imagePicker} style={styles.logoContainer}>
           <GalleryLogo height={20} width={20} />
           <Text style={[styles.logoText, { color: colors.white }]}>
@@ -223,6 +267,7 @@ const QRScreen = () => {
             codeScanner={codeScanner}
             torch={isTorchOn ? 'on' : 'off'}
             animatedProps={animatedProps}
+            onError={e => console.log('Camera error:', e.message)}
           />
         </GestureDetector>
       )}
