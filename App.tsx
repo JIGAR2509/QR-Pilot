@@ -1,5 +1,5 @@
 import './src/translation';
-import { Platform } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import React, { useEffect } from 'react';
 import SplashScreen from 'react-native-splash-screen';
@@ -17,7 +17,6 @@ const App = () => {
     if (Platform.OS === 'android') {
       SplashScreen.hide();
     }
-
     const initNotifications = async () => {
       await initialize();
       await sendWelcome();
@@ -27,7 +26,7 @@ const App = () => {
 
   return (
     <>
-      <GestureHandlerRootView style={{ flex: 1 }}>
+      <GestureHandlerRootView style={styles.root}>
         <SafeAreaProvider>
           <BottomSheetModalProvider>
             <AppNavigator />
@@ -38,5 +37,11 @@ const App = () => {
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
+});
 
 export default App;

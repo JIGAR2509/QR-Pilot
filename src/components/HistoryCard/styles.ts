@@ -47,6 +47,17 @@ const styles = StyleSheet.create({
     right: 20,
     top: '35%',
   },
+  expandableSection: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  qrContainer: {
+    backgroundColor: colors.white,
+    padding: spacing.sm,
+    borderRadius: 8,
+    marginBottom: spacing.sm,
+  },
 });
 
 export default styles;

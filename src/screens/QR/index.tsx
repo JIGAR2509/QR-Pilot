@@ -219,7 +219,7 @@ const QRScreen = () => {
     <SafeAreaView style={styles.container}>
       <Animated.View
         entering={FadeInUp.duration(1200)}
-        style={[styles.upperTab, { marginTop: inset.top }]}
+        style={[styles.upperTab, { marginTop: inset.top + 10 }]}
       >
         <Gradient
           colors={[colors.primary, colors.white, colors.primary]}

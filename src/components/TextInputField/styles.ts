@@ -19,6 +19,16 @@ const styles = StyleSheet.create({
     padding: spacing.md,
     fontFamily: fonts.bold,
   },
+  inputError: {
+    borderColor: 'tomato',
+  },
+  disabled: {
+    opacity: 0.5,
+  },
+  errorText: {
+    color: 'tomato',
+    fontSize: 12,
+  },
 });
 
 export default styles;

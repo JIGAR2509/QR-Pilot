@@ -16,6 +16,7 @@ import { BottomSheetModal } from '@gorhom/bottom-sheet';
 const HistoryScreen = () => {
   const sheetRef = React.useRef<BottomSheetModal>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
   const [focusedView, setFocusedView] = useState(0);
   const { history, removeFromHistory } = useHistoryStore();
   const { t } = useTranslation();
@@ -35,8 +36,15 @@ const HistoryScreen = () => {
       removeFromHistory(selectedId);
       sheetRef.current?.dismiss();
       setSelectedId(null);
+      if (expandedId === selectedId) {
+        setExpandedId(null);
+      }
     }
-  }, [selectedId, removeFromHistory]);
+  }, [selectedId, removeFromHistory, expandedId]);
+
+  const handleToggleExpand = useCallback((id: string) => {
+    setExpandedId(prev => (prev === id ? null : id));
+  }, []);
 
   return (
     <Layout>
@@ -49,7 +57,12 @@ const HistoryScreen = () => {
           keyExtractor={item => item.id}
           contentContainerStyle={styles.contentStyle}
           renderItem={({ item }) => (
-            <HistoryCard item={item} onDelete={handleDelete} />
+            <HistoryCard
+              item={item}
+              onDelete={handleDelete}
+              isExpanded={expandedId === item.id}
+              onToggleExpand={() => handleToggleExpand(item.id)}
+            />
           )}
           ListEmptyComponent={() => <EmptyElement />}
         />

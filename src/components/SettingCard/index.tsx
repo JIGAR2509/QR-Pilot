@@ -5,8 +5,6 @@ import { SettingCardProps } from './types';
 import styles from './styles';
 import Gradient from '../Gradient';
 import { colors } from '../../theme/colors';
-import { fontSize } from '../../theme/typography';
-import { fonts } from '../../theme/fonts';
 
 const SettingCard = ({
   description,
@@ -38,40 +36,14 @@ const SettingCard = ({
         <View style={styles.content}>
           <Icon height={IconHeight ?? 20} width={IconWidth ?? 20} />
           <View style={styles.textContainer}>
-            <Text
-              style={[
-                {
-                  fontSize: fontSize.lg,
-                  fontFamily: fonts.bold,
-                },
-                styles.texts,
-              ]}
-            >
-              {title}
-            </Text>
-            <Text
-              style={[
-                {
-                  fontSize: fontSize.sm,
-                  fontFamily: fonts.normal,
-                },
-                styles.texts,
-              ]}
-            >
+            <Text style={[styles.title, styles.texts]}>{title}</Text>
+            <Text style={[styles.description, styles.texts]}>
               {description}
             </Text>
           </View>
           {text && (
             <View>
-              <Text
-                style={{
-                  color: colors.white,
-                  fontFamily: fonts.bold,
-                  fontSize: fontSize.md,
-                }}
-              >
-                {text}
-              </Text>
+              <Text style={styles.extraText}>{text}</Text>
             </View>
           )}
           {RightIcon && (

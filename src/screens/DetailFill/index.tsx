@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { RootStackParamList } from '../../navigation/types';
 import Layout from '../../components/Layout';
@@ -19,16 +19,19 @@ import Share from 'react-native-share';
 import { CameraRoll } from '@react-native-camera-roll/camera-roll';
 import { Platform } from 'react-native';
 import { captureRef } from 'react-native-view-shot';
+import { KeyboardAvoidingView, ScrollView } from 'react-native';
+import { Formik, FormikProps } from 'formik';
 
 import {
   renderIcon,
   renderInputVariants,
   DetailFillFormData,
   getQRData,
+  getValidationSchema,
 } from './variants';
 import QRCode from 'react-native-qrcode-svg';
 import Gradient from '../../components/Gradient';
-import { inputData, isGenerateDisabled } from './utils';
+import { inputData } from './utils';
 import LinearGradient from 'react-native-linear-gradient';
 import Toast from 'react-native-toast-message';
 import { useHistoryStore } from '../../store/historyStore';
@@ -49,28 +52,20 @@ const pageTitleMap = {
 const DetailFillScreen = () => {
   const [isFront, setIsFront] = useState(true);
   const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState<DetailFillFormData>(inputData);
   const { t } = useTranslation();
-
   const { sendQRGenerated } = useNotification();
   const qrRef = useRef<QRCode | null>(null);
   const route = useRoute<RouteProp<RootStackParamList, 'DetailFillScreen'>>();
   const details = route.params;
   const transition = useSharedValue(1);
-
-  const frontAnimatedStyle = useAnimatedStyle(() => {
-    return {
-      opacity: transition.value,
-      transform: [{ scale: transition.value }],
-    };
-  });
-
-  const backAnimatedStyle = useAnimatedStyle(() => {
-    return {
-      opacity: 1 - transition.value,
-      transform: [{ scale: 1 - transition.value }],
-    };
-  });
+  const frontAnimatedStyle = useAnimatedStyle(() => ({
+    opacity: transition.value,
+    transform: [{ scale: transition.value }],
+  }));
+  const backAnimatedStyle = useAnimatedStyle(() => ({
+    opacity: 1 - transition.value,
+    transform: [{ scale: 1 - transition.value }],
+  }));
 
   const handleSave = async () => {
     try {
@@ -104,7 +99,10 @@ const DetailFillScreen = () => {
     } catch {}
   };
 
-  const handleButtonPress = () => {
+  const handleButtonPress = (
+    values: DetailFillFormData,
+    resetForm?: () => void,
+  ) => {
     if (isFront) {
       setLoading(true);
       setTimeout(() => {
@@ -118,7 +116,7 @@ const DetailFillScreen = () => {
           type: 'info',
           text1: t('detail.generated_success'),
         });
-        const qrValue = getQRData(details.title, formData);
+        const qrValue = getQRData(details.title, values);
         useHistoryStore.getState().addToHistory({
           id: Date.now().toString(),
           value: qrValue,
@@ -126,7 +124,6 @@ const DetailFillScreen = () => {
           category: details.title,
           createdAt: new Date().toISOString(),
         });
-
         setTimeout(async () => {
           try {
             if (qrRef.current) {
@@ -141,7 +138,7 @@ const DetailFillScreen = () => {
           } catch (err) {
             console.error('Notification capture error:', err);
           }
-        }, 1500);
+        }, 2500);
       }, 2000);
     } else {
       transition.value = withTiming(1, {
@@ -149,15 +146,12 @@ const DetailFillScreen = () => {
         easing: Easing.inOut(Easing.ease),
       });
       setIsFront(true);
+      if (resetForm) resetForm();
     }
   };
 
-  if (!details?.title) {
-    return null;
-  }
-
+  if (!details?.title) return null;
   const normalizedTitle = details.title.replace(/\u2011/g, '-');
-
   const getTitleKey = () => {
     const key = normalizedTitle as keyof typeof pageTitleMap;
     return (
@@ -169,114 +163,147 @@ const DetailFillScreen = () => {
 
   return (
     <Layout>
-      <Header title={t(getTitleKey())} backIcon />
-      <View style={styles.gradientWrapper}>
-        {isFront ? (
-          <Animated.View style={frontAnimatedStyle}>
-            <View style={styles.container}>
-              <Gradient
-                colors={[colors.primary, colors.white, colors.primary]}
-                angle={90}
-                style={[styles.gradient, { top: 0 }]}
-              />
-              <Gradient
-                colors={[colors.primary, colors.white, colors.primary]}
-                angle={90}
-                style={[styles.gradient, { bottom: 0 }]}
-              />
-              <View style={styles.iconWrapper}>
-                {renderIcon(details.title)}
-              </View>
-              <View style={styles.inputWrapper}>
-                {renderInputVariants(details.title, formData, setFormData, t)}
-              </View>
-
-              <LinearGradient
-                colors={
-                  isGenerateDisabled(details.title, formData)
-                    ? [colors.white, colors.secondary]
-                    : [colors.primary, colors.white, colors.primary]
-                }
-                useAngle
-                angle={150}
-                style={{ alignSelf: 'center', borderRadius: 8, marginTop: 20 }}
-              >
-                <TouchableOpacity
-                  onPress={handleButtonPress}
-                  disabled={
-                    loading || isGenerateDisabled(details.title, formData)
-                  }
-                  style={styles.button}
-                >
-                  {loading && isFront ? (
-                    <ActivityIndicator color={colors.secondary} />
-                  ) : (
-                    <Text
-                      style={[
-                        styles.buttonText,
-                        {
-                          color: isGenerateDisabled(details.title, formData)
-                            ? colors.white
-                            : colors.secondary,
-                        },
-                      ]}
-                    >
-                      {t('detail.generate')}
-                    </Text>
-                  )}
-                </TouchableOpacity>
-              </LinearGradient>
-            </View>
-          </Animated.View>
-        ) : (
-          <View style={styles.qrWrapper}>
-            <Animated.View style={backAnimatedStyle}>
-              <View style={styles.qrBorder}>
-                <QRCode
-                  value={getQRData(details.title, formData) || 'NA'}
-                  size={250}
-                  getRef={ref => {
-                    qrRef.current = ref;
-                  }}
-                />
-              </View>
-            </Animated.View>
-            <View style={styles.qrButtonRow}>
-              <TouchableOpacity onPress={handleSave} style={styles.qrButton}>
-                <SaveIcon />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={handleShare} style={styles.qrButton}>
-                <ShareIcon />
-              </TouchableOpacity>
-            </View>
-            <Gradient
-              colors={
-                isGenerateDisabled(details.title, formData)
-                  ? [colors.white, colors.gray]
-                  : [colors.primary, colors.white, colors.primary]
-              }
-              angle={150}
-              style={styles.editButton}
+      <Header title={t(getTitleKey())} backIcon style={styles.header} />
+      <KeyboardAvoidingView
+        style={styles.keyboardView}
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        keyboardVerticalOffset={30}
+      >
+        <Formik
+          initialValues={inputData}
+          validationSchema={getValidationSchema(details.title)}
+          onSubmit={(values, { resetForm }) =>
+            handleButtonPress(values, resetForm)
+          }
+        >
+          {({
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            values,
+            errors,
+            touched,
+            resetForm,
+            isValid,
+            dirty,
+          }: FormikProps<DetailFillFormData>) => (
+            <ScrollView
+              contentContainerStyle={styles.gradientWrapper}
+              keyboardShouldPersistTaps="handled"
             >
-              <TouchableOpacity
-                onPress={handleButtonPress}
-                style={styles.button}
-              >
-                <Text
-                  style={[
-                    styles.buttonText,
-                    {
-                      color: colors.secondary,
-                    },
-                  ]}
-                >
-                  {t('detail.edit')}
-                </Text>
-              </TouchableOpacity>
-            </Gradient>
-          </View>
-        )}
-      </View>
+              {isFront ? (
+                <Animated.View style={frontAnimatedStyle}>
+                  <View style={styles.container}>
+                    <Gradient
+                      colors={[colors.primary, colors.white, colors.primary]}
+                      angle={90}
+                      style={[styles.gradient, styles.gradientTop]}
+                    />
+                    <Gradient
+                      colors={[colors.primary, colors.white, colors.primary]}
+                      angle={90}
+                      style={[styles.gradient, styles.gradientBottom]}
+                    />
+                    <View style={styles.iconWrapper}>
+                      {renderIcon(details.title)}
+                    </View>
+                    <View style={styles.inputWrapper}>
+                      {renderInputVariants(
+                        details.title,
+                        values,
+                        handleChange,
+                        handleBlur,
+                        errors,
+                        touched,
+                        t,
+                      )}
+                    </View>
+                    <LinearGradient
+                      colors={
+                        !(isValid && dirty)
+                          ? [colors.white, colors.secondary]
+                          : [colors.primary, colors.white, colors.primary]
+                      }
+                      useAngle
+                      angle={150}
+                      style={styles.generateButtonContainer}
+                    >
+                      <TouchableOpacity
+                        onPress={() => handleSubmit()}
+                        disabled={loading || !(isValid && dirty)}
+                        style={styles.button}
+                      >
+                        {loading && isFront ? (
+                          <ActivityIndicator color={colors.secondary} />
+                        ) : (
+                          <Text
+                            style={[
+                              styles.buttonText,
+                              !(isValid && dirty)
+                                ? styles.buttonTextInactive
+                                : styles.buttonTextActive,
+                            ]}
+                          >
+                            {t('detail.generate')}
+                          </Text>
+                        )}
+                      </TouchableOpacity>
+                    </LinearGradient>
+                  </View>
+                </Animated.View>
+              ) : (
+                <View style={styles.qrWrapper}>
+                  <Animated.View style={backAnimatedStyle}>
+                    <View style={styles.qrBorder}>
+                      <QRCode
+                        value={getQRData(details.title, values) || 'NA'}
+                        size={250}
+                        getRef={ref => {
+                          qrRef.current = ref;
+                        }}
+                      />
+                    </View>
+                  </Animated.View>
+                  <View style={styles.qrButtonRow}>
+                    <TouchableOpacity
+                      onPress={handleSave}
+                      style={styles.qrButton}
+                    >
+                      <SaveIcon />
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      onPress={handleShare}
+                      style={styles.qrButton}
+                    >
+                      <ShareIcon />
+                    </TouchableOpacity>
+                  </View>
+                  <Gradient
+                    colors={
+                      !(isValid && dirty)
+                        ? [colors.white, colors.gray]
+                        : [colors.primary, colors.white, colors.primary]
+                    }
+                    angle={150}
+                    style={styles.editButton}
+                  >
+                    <TouchableOpacity
+                      onPress={() => handleButtonPress(values, resetForm)}
+                      style={styles.button}
+                    >
+                      <Text
+                        style={[styles.buttonText, styles.buttonTextActive]}
+                      >
+                        {t('detail.edit')}
+                      </Text>
+                    </TouchableOpacity>
+                  </Gradient>
+                </View>
+              )}
+            </ScrollView>
+          )}
+        </Formik>
+      </KeyboardAvoidingView>
     </Layout>
   );
 };

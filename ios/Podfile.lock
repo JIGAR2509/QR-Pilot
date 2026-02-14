@@ -3463,7 +3463,7 @@ SPEC CHECKSUMS:
   fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd
   glog: 5683914934d5b6e4240e497e0f4a3b42d1854183
   Haptics: caa98be61cf6b0ccfdc461321b0c1dd2a9d49b8e
-  hermes-engine: 0ff3308c94ff42a0cb5372025de4a4254c6d753b
+  hermes-engine: 0ffdc916e3a29211bd50fe45d1deb52553d34d1a
   RCT-Folly: 846fda9475e61ec7bcbf8a3fe81edfcaeb090669
   RCTDeprecation: a41bbdd9af30bf2e5715796b313e44ec43eefff1
   RCTRequired: 7be34aabb0b77c3cefe644528df0fa0afad4e4d0

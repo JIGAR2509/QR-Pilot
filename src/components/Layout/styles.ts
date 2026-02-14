@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.gray,
+    paddingTop: spacing.md,
     paddingHorizontal: spacing.xl,
   },
 });

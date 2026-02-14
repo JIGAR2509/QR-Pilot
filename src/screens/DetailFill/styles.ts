@@ -1,11 +1,12 @@
 import { StyleSheet } from 'react-native';
-import { spacing } from '../../theme/typography';
 import { colors } from '../../theme/colors';
 import { fonts } from '../../theme/fonts';
+import { fontSize, spacing } from '../../theme/typography';
 
 const styles = StyleSheet.create({
   gradientWrapper: {
     flex: 1,
+    paddingTop: spacing.xs,
     justifyContent: 'center',
   },
   container: {
@@ -76,6 +77,35 @@ const styles = StyleSheet.create({
   editButton: {
     borderRadius: 8,
     alignSelf: 'center',
+  },
+  header: {
+    paddingBottom: 10,
+  },
+  keyboardView: {
+    flex: 1,
+  },
+  gradientTop: {
+    top: 0,
+  },
+  gradientBottom: {
+    bottom: 0,
+  },
+  generateButtonContainer: {
+    alignSelf: 'center',
+    borderRadius: 8,
+    marginTop: 20,
+  },
+  buttonTextActive: {
+    color: colors.secondary,
+  },
+  buttonTextInactive: {
+    color: colors.white,
+  },
+  orText: {
+    textAlign: 'center',
+    fontSize: fontSize.lg,
+    color: colors.white,
+    fontFamily: fonts.bold,
   },
 });
 

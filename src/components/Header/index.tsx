@@ -8,10 +8,10 @@ import { spacing } from '../../theme/typography';
 import styles from './styles';
 import { HeaderProps } from './types';
 
-const Header = ({ title, backIcon, rightIcon }: HeaderProps) => {
+const Header = ({ title, backIcon, rightIcon, style }: HeaderProps) => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       {backIcon && (
         <TouchableOpacity
           style={styles.button}
